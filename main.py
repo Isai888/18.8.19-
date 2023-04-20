@@ -1,7 +1,17 @@
-if __name__ == '__main__':
-    money = float(input("Введите сумму депозита: "))
-    per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
-    deposit = {}
-    for bank, percent in per_cent.items():
-        deposit[bank] = money * (percent/100)
-    print("Максимальная сумма, которую вы можете заработать - " + str(round(max(deposit.values()), 3)))
+tickets = int(input("Введите количество билетов: "))
+total = 0
+
+for ticket in range(tickets):
+    age = int(input(f"Введите возраст посетителя {ticket+1}-го билета: "))
+    if age < 18:
+        price = 0
+    elif age >= 18 and age <= 25:
+        price = 990
+    else:
+        price = 1390
+    total += price
+
+if tickets > 3:
+    total *= 0.9
+
+print(f"Общая стоимость билетов: {total} руб.")
